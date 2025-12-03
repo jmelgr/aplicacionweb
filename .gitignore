@@ -1,0 +1,43 @@
+# Node modules
+backend/node_modules/
+frontend/node_modules/
+
+# Build / output
+frontend/dist/
+frontend/dist-ssr/
+backend/*.zip
+
+# Environment files
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+
+# Infra
+infra/lambdas/lambda_cleanup/node_modules
+infra/lambdas/lambda_pending/node_modules
+infra/terraform/terraform.tfstate
+infra/terraform/terraform.tfstate.backup
+infra/terraform/plan.tfplan
+infra/terraform/.terraform/
+infra/terraform/venv
+infra/terraform/secrets.tfvars
+infra/terraform/userdata.sh
+
+# Logs
+*.log
+logs/
+
+# Python virtualenv
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
