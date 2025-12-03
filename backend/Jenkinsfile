@@ -1,24 +1,10 @@
 pipeline {
-    agent { label 'docker' }
-
-    environment {
-        DOCKER_IMAGE = "joseman1/backend:latest"
-        DOCKERHUB_CREDENTIALS = "dockerhub-creds"
-    }
+    agent any
 
     stages {
-        stage('Checkout') {
-            steps { git branch: 'main', url: 'https://github.com/jmelgr/aplicacionweb.git' }
-        }
-        stage('Build Docker Image') {
-            steps { sh "docker build --no-cache -t ${DOCKER_IMAGE} ." }
-        }
-        stage('Push to Docker Hub') {
+        stage('Test') {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                    sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh "docker push ${DOCKER_IMAGE}"
-                }
+                sh 'docker version'
             }
         }
     }
