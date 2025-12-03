@@ -9,6 +9,8 @@ const AWS = require('aws-sdk');
 
 const app = express();
 
+// Trigger pipeline test !!!!!!!!!!
+
 // Uso CORS para que mi backend y frontend puedan comunicarse
 app.use(cors({
   origin: "*",
