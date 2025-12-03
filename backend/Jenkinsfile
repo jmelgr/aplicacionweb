@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'docker' }
 
     environment {
         DOCKER_IMAGE = "joseman1/backend:latest"
