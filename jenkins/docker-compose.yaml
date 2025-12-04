@@ -6,9 +6,11 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: jenkins-lab13
+    container_name: jenkins-lab
+
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs/jenkins.yaml
+      - DOCKER_HOST=tcp://dind:2375
 
     ports:
       - "8080:8080"
@@ -29,6 +31,7 @@ services:
       - DOCKER_TLS_CERTDIR=
     ports:
       - "2375:2375"
+    command: ["--host=tcp://0.0.0.0:2375", "--host=unix:///var/run/docker.sock"]
     volumes:
       - dind_storage:/var/lib/docker
 
