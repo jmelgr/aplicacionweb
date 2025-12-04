@@ -1,10 +1,12 @@
 pipeline {
     agent any
-
     stages {
-        stage('Test') {
+        stage('Node Info') {
             steps {
-                sh 'docker version'
+                sh 'whoami'
+                sh 'pwd'
+                sh 'ls -la /'
+                sh 'ls -la /var/run || echo "No /var/run"'
             }
         }
     }
